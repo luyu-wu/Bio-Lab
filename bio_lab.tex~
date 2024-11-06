@@ -1,0 +1,269 @@
+\documentclass[prl,twocolumn,amsmath,amssymb,superscriptaddress]{revtex4-2}
+
+% You may use additional packages as you see fit
+\usepackage{graphicx}
+\usepackage{verbatim}
+\usepackage{braket}
+\usepackage{epsfig}
+\usepackage{epstopdf}
+\usepackage{amsfonts}
+\usepackage{amsthm}
+\usepackage{float}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{color}
+\usepackage[usenames,dvipsnames,svgnames,table]{xcolor}
+\usepackage{dsfont} 
+\usepackage{color}
+\usepackage{grffile}
+\usepackage{bm}
+
+% ones I added
+\usepackage{hyperref} 
+\usepackage{multirow}
+\hypersetup{colorlinks=true,linkcolor=NavyBlue,citecolor=BrickRed,urlcolor=NavyBlue}
+
+%end of packages
+
+\begin{document} 
+
+\title{Investigation into DSSC efficiency}
+\author{Luyu Wu}
+\date{\today}
+
+\begin{abstract}
+    Grätzel cells use a complicated photovoltaic process which suffers from energy loss in multiple stages. This leads to a generally subpar efficiency when compared to classical P-N junction cells. Throughout this report, I analyze energy losses throughout the Grätzel cell's photovoltaic process, and suggest ways to minimize these.
+\end{abstract}
+\maketitle
+
+\section{Introduction}
+
+Grätzel cells, more commonly known as dye-sensitized solar cells (or DSSCs for short), are photovoltaic cells that generate a photocurrent upon exposure to light of a suitable frequency. These cells have shown promise of achieving high efficiency and can be significantly more environmentally friendly, cheaper, and easier to manufacture than conventional P-N semiconductor junction cells.
+
+The benefits of Grätzel cells largely come from their discretized nature---which allows each part of the photovoltaic process to be optimized individually\cite{AdvancingDSSC}. This means that things like the sensitizing dye can achieve far greater IPCE (incident photon to current efficiency) than silicon cells, or the open-circuit voltage ($V_{oc}$) can be increased beyond the ability of silicon cells through optimization of the catalyzer and redox portion.
+
+
+\section{Cell Construction}
+DSSCs are generally constructed in an easy way that make them viable for home experiments. A thin film (0.1mm) of Titanium Dioxide (TiO$_2$) is applied with a doctor-blading technique then sintered to create a porous film on top of a conductive glass slide. The end result of this process can be seen in Figure \ref{fig:tio2sintered}.
+
+\begin{figure}[htb]
+    \includegraphics[width=0.7\linewidth]{applied_pase.jpg}
+    \caption{Image of sintered Titanium Dioxide applied to a conductive glass slide.}
+    \label{fig:tio2sintered}
+\end{figure}
+
+This layer is then submersed in a sensitizing dye (thus the name dye sensitized solar cell) that allows the otherwise reflective TiO$_2$ to be excited by incident photons. Oftentimes, this dye is some product of fruit juice---which contain anthocyanins---a group of organic molecules which can bond with the TiO$_2$ in a way that makes D-$\pi$-A electron injection possible. Once the anthocyanins have finished bonding with the TiO$_2$, the cell will have changed from titanium white to some darker shade, this signals a successful sensitization. An image of the sensitization process can be seen in Figure \ref{fig:sensitizer}.
+
+\begin{figure}[htb]
+    \includegraphics[width=0.65\linewidth]{applied_sensitizer.png}
+    \caption{Image of sensitizing dye applied to TiO$_2$. In this image, raspberry juice was used. The cell size is not representative of my later experiments.}
+    \label{fig:sensitizer}
+\end{figure}
+
+Once this is complete, cells are attached to a counter-electrode covered with a redox catalyst (as in Figure \ref{fig:catalyzer_applied}), then, a redox electrolyte is inserted between the slides completing the cell. A diagram of the full cell structure can be found in the Appendix.
+
+\begin{figure}[htb]
+    \includegraphics[width=0.7\linewidth]{catalyzed_carbon.png}
+    \caption{Image of redox catalyzer applied to the counter-electrode.}
+    \label{fig:catalyzer_applied}
+\end{figure}
+
+\newpage
+
+\section{Photovoltaic process}
+The process that dye-sensitized solar cells go through to generate photocurrent is complicated compared to semiconductor cells. In this section I identify all stages of the photovoltaic cycle within the Grätzel cell, as well as the energy losses associated with each individual stage. A diagram of the full cycle can be found in the Appendix.
+
+The first stage of our process occurs when incident light passes through our photoanode. Roughly 10\% of energy is lost due to transmission losses.
+Next, if a photon is of sufficient energy, it excites an electron in the dye to the conduction band. At this point the electron may fall into an electron hole while diffusing through the TiO$_2$ microstructure. This case is avoided if the redox mediator acts fast enough to replenish the ionized dye.
+
+From here the electron diffuses through the N-type semiconductor (TiO$_2$) to the glass slide. Because the photoanode must be transparent, it is not possible to use conductive metals, instead we use a transparent semiconductor coating (typically indium or fluorine-doped tin oxide) which has high resistance (~8-13$\Omega$ measured over the diagonal of a 5\,cm square piece). This is treated as the cell's internal resistance, and is another large cause of efficiency loss.
+
+Our excited electron then travels through our load to the cell cathode and goes through the redox shuttle (typically $I_3^- + 2e^- \Leftrightarrow 3I^-$) to replenish the ionized dye molecules. The redox reaction does not suffer from large energy losses, but without a sufficient catalyzer, it can be slow and thus be a rate bottleneck. It may also lead to higher redox potential.
+
+\section{Experimental Setup}
+Obtaining accurate experimental data is crucial to accurately measuring the efficacy of new processes introduced, thus much of my time on this problem went into designing a low-error experimental method. 
+
+\begin{table}[h!]
+    \centering
+    \caption{List of controlled parameters and values. All experiments are done at these values unless specificed otherwise.}
+    \begin{tabular}{p{5cm}p{2.5cm}} 
+        \hline \\[-3ex]
+        & \\
+        Parameter & Value \\
+        \hline \\[-3ex]
+        & \\% <<<< here
+        Brightness & 25 000 lx \\ 
+        Luminous Efficacy & 100 lm W$^{-1}$ \\
+        Catalyzer & Elemental carbon \\
+        Juice Type & Blackberry \\
+        Sintering Time & 900 s \\
+        Sensitization Time & 900 s \\
+        Iodine Concentration (in ethanol) & Full saturation \\
+        Mixture Ratio TiO$_2$:Acid & 2:1 Acetic Acid\\
+        Slide size & $5\times5{\rm\,cm^2}$\\
+        Slide Resistance & $8 \Omega$ \\ [0.5ex] 
+        \hline
+    \end{tabular}
+    
+    \label{table:experimental_values}
+\end{table}
+
+\subsection{Cell Properties}
+In terms of cell properties, I kept cell size constant at 2cm$^2$ with a frame and TiO$_2$ thickness constant with a doctor-blading method that is outlined in Hao et al.\cite{acetic_acid_effect}. Sensitizing dye was distilled with ethanol and filtered to ensure that properties such as fibrosity would not affect the sensitization process. Further controlled variables can be found in Table \ref{table:experimental_values}. 
+
+\subsection{Data Collection}
+In measurement, it was important to keep the brightness of the light source constant throughout my trials, and to isolate it from outside light to prevent a change in spectrum. Thus, I made a darkbox in which I drilled a few holes for connections with my multimeters. My setup is shown in Fig. \ref{fig:experimental_diagram} and \ref{fig:exp_setup}. Due to the high variability between cells, I built each cell configuration 2 to 4 times so that I could estimate means and standard deviations.
+
+
+\begin{figure}[htb]
+    \includegraphics[width=\linewidth]{setupoverview.png}
+    \caption{Diagram of my experimental setup. The neutral density (ND) filter was removed for most tests.}
+    \label{fig:experimental_diagram}
+\end{figure}
+
+
+\begin{figure}[htb]
+    \includegraphics[width=\linewidth]{setup_pic.png}
+    \caption{Image of my experimental setup. The light source used for most tests was a white fluorescent bulb.}
+    \label{fig:exp_setup}
+\end{figure}
+
+\newpage
+\section{Acid Treatment Component}
+A relatively under-explored side of DSSCs has been the effects of acid treatment of TiO$_2$ on the dye-sensitization process. The acid used---as well as its concentration---can have drastic effects on the TiO$_2$ microstructure and its capacity for dye-sensitization. This can be explained somewhat by Brønsted theory, where the acids donate H$^+$ ions that bind with the TiO$_2$'s negative pole\cite{acetic_acid_effect}. Changing the acid treatment will therefore affect the Fermi level of the TiO$_2$ and thus also the band gap and the open-circuit voltage V$_{\rm OC}$. Some preliminary experiments can be seen to verify this; see Figure \ref{fig:acid_graph}. 
+
+Unfortunately, I didn't have much time to investigate this further, but optimizing acid type and concentration seems a promising avenue for further improvements to DSSC efficiency.
+
+\begin{figure}[htb]
+    \includegraphics[width=0.9\linewidth]{acid_type.png}
+    \caption{Graph of the open circuit voltage across different acid types and molarities.}
+    \label{fig:acid_graph}
+\end{figure}
+
+\section{Redox Component}
+
+The open-circuit voltage ($V_{\rm OC}$) is equivalent to the difference between the Fermi level of our semiconductor and the redox potential of the iodine redox. This suggests that we can improve our DSSC efficiency by increasing our Fermi level (by decreasing our band-gap) or by decreasing our redox potential. In this section, I pursue methods to decrease the redox potential.
+
+Since in my setup, Iodine already fully saturates the redox electrolyte solution, the best approach is to apply a redox catalyzer: a surface that has an highly oxidizable nature. To simply define a good redox catalyzer, it must have a high electrochemical activity level (can be easily oxidized), and form a microstucture that has a high surface contact area with the electrolyte.
+
+In leading research\cite{catalyzer}, platinum paste is known to be the best catalyzer, but this is both expensive and environmentally damaging. Instead, I researched carbon-based catalyzers, which share similar electrochemical properties to platinum. In my experimental results---visible in Figure \ref{fig:catalyzer_graph}---one sees that elemental carbon soot shows the best results.
+
+\begin{figure}[htb]
+    \includegraphics[width=0.85\linewidth]{redox_catalyzer.png}
+    \caption{Graph of the open circuit voltage across different redox catalyzers.}
+    \label{fig:catalyzer_graph}
+\end{figure}
+
+
+\section{Band-Gap Component}
+As I explained in the last section, the open-circuit voltage $V_{OC}$ of a DSSC is the difference between the redox potential and the Fermi level. In this section I seek to increase $V_{OC}$ as well as the closed-circuit current $I_{CC}$ through increasing the Fermi level.
+
+As a brief recap, the band gap of a semiconductor is the amount of energy needed for an electron to jump from the highest filled electron orbital into the free flowing conduction band. Using this knowledge and Planck's equation, I define $f_{min} = \frac{E_{\rm band gap}}{h}$. In the case that I decrease our band gap, the lowest photon frequency that can excite an electron to the conduction band will decrease, and thus our current and open-circuit voltage will increase. 
+
+To show an example of this, I use warm light and cold light\footnote{Warm light, which is predominantly low-frequency visible light, should excite fewer electrons and thus have lower OC voltage when compared to cold light, which has more high-energy blue and violet photons.} at the same intensity. As can be seen in Figure \ref{fig:warmcold}, I indeed find that warm light has a significantly lower $V_{OC}$.
+
+\begin{figure}[htb]
+    \includegraphics[width=0.85\linewidth]{light_temperature.png}
+    \caption{Graph of $V_{OC}$ across different light temperatures (``warm'' or reddish light has lower temperature than ``cold'' or bluish light). The data are from a preliminary cell for which I used distilled water.}
+    \label{fig:warmcold}
+\end{figure}
+
+\newpage
+\subsection{Density Functional Theory}
+As a continuation of the band gap component, here I seek to find the sensitizing anthocyanin dye with the lowest band gap using density functional theory.
+
+Before I start, it is crucial to define LUMO and HOMO. LUMO or lowest-unoccupied molecular orbital is defined as the energy level right above the band gap, while HOMO or highest occupied molecular orbital is defined as the energy level right below the band gap. Thus, $E_{LUMO}-E_{HOMO}$ is the value of our band gap.
+
+Density functional theory (DFT) is a computational quantum mechanical modelling theory that computes the electronic structure of molecules through modelling the effects between elementary particles. It is often used in condensed matter physics for solving interactions at the particle scale.
+
+In my case, I use DFT to find the HOMO and LUMO energy levels of numerous anthocyanins that are found in various fruits.
+The first step is acquiring the necessary molecular data. Luckily, the NIH stores SMILES (a string describing a molecule) for all anthocyanins I was looking for. After this, I render them using Avogadro 2 and optimize the anthocyanins' molecular structure using Open Babel. An image of this process is shown in Figure \ref{fig:avogadro}.
+\begin{figure}[htb]
+    \includegraphics[width=0.9\linewidth]{avogradro.png}
+    \caption{Avogadro 2 software rendering of a Cyadinin-3-Glucoside anthocyanin molecule.}
+    \label{fig:avogadro}
+\end{figure}
+
+Next, I export the optimized geometry as a .xyz coordinate file type and the optimized charges as a .dalmol file.
+
+Unfortunately, I was unable to acquire a license for GAMESS---a modern academic-purposes quantum computing package. Instead, I used Dalton, an open-source package written in FORTRAN dating from 1997.
+Our basis set (6.31G*) was unable to perform DFT calculations on metal-based dyes (such as Ruthenium N719), due to their far more complex nature compared to organic anthocyanins.
+
+Despite these issues, the limited number of results are very promising. In Figure \ref{fig:homo_lumo} we see HOMO and LUMO energy levels of several anthocyanins. Graphing the difference in Figure \ref{fig:band_gap}, we can see that malvindin 3-galactoside (a anthocyanin commonly found in blueberries) has the lowest band gap. This correlates with experimental data seen in Figure \ref{fig:fruit_juices}.
+
+\begin{figure}[htb]
+    \includegraphics[width=\linewidth]{DFT_HOMOLUMO.png}
+    \caption{Highest occupied and lowest unoccupied molecular orbital (HOMO and LUMO) for different anthocyanin dyes. Apologies for the small text, anthocyanin names are long!}
+    \label{fig:homo_lumo}
+\end{figure}
+
+\begin{figure}[htb]
+    \includegraphics[width=\linewidth]{band_gap.png}
+    \caption{Calculated band gaps for different anthocyanin dyes.}
+    \label{fig:band_gap}
+\end{figure}
+
+\begin{figure}[htb]
+    \includegraphics[width=0.8\linewidth]{juices.png}
+    \caption{Experimental data of $V_{OC}$ for different fruit juices. Blueberry juice, which contains predominantly malvindin 3-galactoside, leads over blackberry and raspberry juice, which contain predominantly cyadinin 3-O glucoside.}
+    \label{fig:fruit_juices}
+\end{figure}
+
+% Blackberry:  Cyadinin 3-glucoside, pelargodinin 3-glucoside,
+% Raspberries: Cyadinin 3-glucoside, cyadinin 3-O-sophoroside
+% Blueberries: Malvindin 3-galactoside, Delphinidin 3-O-glucoside
+
+
+\newpage
+\section{Conclusion}
+
+In conclusion, throughout this project I've: 
+\begin{itemize}
+    \item Defined a standardized method to constructing Grätzel cells;
+    \item Built a low-error experimental setup to obtain large amounts of high-quality data;
+    \item Identified and approached numerous critical parameters of Grätzel cells with both theoretical understanding and modelling;
+    \item Experimentally verified many of my findings with positive results.
+\end{itemize}
+
+Critical parameters I've explored include parameters such as:
+\begin{itemize}
+    \item Acid treatment;
+    \item Redox electrolyte, mediator and catalyzer;
+    \item Light temperature;
+    \item Anthocyanin type.
+\end{itemize}
+Through exploring these parameters I've managed to increase the efficiency of my solar cell drastically since my first revision.
+\newpage
+\onecolumngrid
+\newpage
+
+\section{Appendix}
+
+%\subsection{Appendix A: Full Cycle Diagram}
+\begin{figure}[h]
+    \includegraphics[width=0.8\linewidth]{full_cycle.png}
+    \caption{A diagram of the full photovoltaic process in DSSCs}
+    \label{fig:full_cycle}
+\end{figure}
+
+% \subsection{Appendix B: Resistive Heatmaps}
+% \begin{figure}[h]
+%    \includegraphics[width=0.6\linewidth]{rendered_heatmaps.png}
+%    \caption{A theoretical resistance heatmap. Left is without an aluminum strip, right is with.}
+%    \label{fig:rendered_heatmaps}
+% \end{figure}
+
+% \subsection{Appendix C: Cell Diagram}
+
+\begin{figure}[h]
+    \includegraphics[width=0.8\linewidth]{sandwhich.png}
+    \caption{A side view of the DSSC. Layers from top to bottom as follows: Indium-Doped Tin Oxide (ITO), Dye-sensitized TiO$_2$, Iodine redox electrolyte solution, redox catalyzer, ITO.}
+    \label{fig:sandwhich}
+\end{figure}
+
+\bibliography{refs.bib}{} % Entries are in the refs.bib file
+\bibliographystyle{plain} % We choose the "plain" reference style
+
+
+%Use BibTeX for citation. 
+\end{document}

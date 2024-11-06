@@ -44,7 +44,6 @@ std_4_g = np.std([disc_4_0_g,disc_4_1_g],axis=0)
 
 fig_0, bar_slope = plt.subplots()
 fig_1, rate_fit = plt.subplots()
-fig_2, grad_fit = plt.subplots()
 fig_3, (ax_real,ax_rate) = plt.subplots(2)
 
 # VOLUME GRAPH
@@ -81,54 +80,64 @@ ax_rate.set_xlabel("Time (s)")
 ax_rate.set_ylabel("Rate (mL/s)")
 
 # BAR GRAPH
-a1_0,b = np.polyfit(time,disc_1_0,1)
-a1_1,b = np.polyfit(time,disc_1_1,1)
+lim_b = 0
+lim_t = 4
+a1_0,b = np.polyfit(time[lim_b:lim_t],disc_1_0[lim_b:lim_t],1)
+a1_1,b = np.polyfit(time[lim_b:lim_t],disc_1_1[lim_b:lim_t],1)
 
-a2_0,b = np.polyfit(time,disc_2_0,1)
-a2_1,b = np.polyfit(time,disc_2_1,1)
+a2_0,b = np.polyfit(time[lim_b:lim_t],disc_2_0[lim_b:lim_t],1)
+a2_1,b = np.polyfit(time[lim_b:lim_t],disc_2_1[lim_b:lim_t],1)
 
-a3_0,b = np.polyfit(time,disc_3_0,1)
-a3_1,b = np.polyfit(time,disc_3_1,1)
+a3_0,b = np.polyfit(time[lim_b:lim_t],disc_3_0[lim_b:lim_t],1)
+a3_1,b = np.polyfit(time[lim_b:lim_t],disc_3_1[lim_b:lim_t],1)
 
-a4_0,b = np.polyfit(time,disc_4_0,1)
-a4_1,b = np.polyfit(time,disc_4_1,1)
+a4_0,b = np.polyfit(time[lim_b:lim_t],disc_4_0[lim_b:lim_t],1)
+a4_1,b = np.polyfit(time[lim_b:lim_t],disc_4_1[lim_b:lim_t],1)
 
 data = np.array([[a1_0,a1_1],[a2_0,a2_1],[a3_0,a3_1],[a4_0,a4_1]])
 color = ['#089FFF','#FF8419','#65BC85','#D62728']
+av = np.average(data,axis=1)
 
-bar_slope.bar(["1 Disc","2 Discs","3 Discs","4 Discs"],np.average(data,axis=1),capsize=2,color=color,yerr=np.std(data,axis=1))
+bar_slope.bar(["1 Disc","2 Discs","3 Discs","4 Discs"],av,capsize=0,color=color,yerr=np.std(data,axis=1),width=0)
+bar_slope.scatter(["1 Disc","2 Discs","3 Discs","4 Discs"],data[:,0],c="#089FFF")
+bar_slope.scatter(["1 Disc","2 Discs","3 Discs","4 Discs"],data[:,1],c="#089FFF")
+
 bar_slope.yaxis.grid(True, linestyle='--', which='major',color='grey', alpha=.25)
-bar_slope.set_title("Slope of Best Fit Line for Volume of Gas vs. Time")
+bar_slope.set_title("Rate of Reaction")
+bar_slope.set_ylabel("Rate (mL/s)")
 
+
+rate_fit.scatter(time,disc_1_0,alpha=0.4,color='#089FFF',label="1 Disc")
+rate_fit.scatter(time,disc_1_1,alpha=0.4,color='#089FFF')
+rate_fit.scatter(time,disc_2_0,alpha=0.4,color='#FF8419',label="2 Disc")
+rate_fit.scatter(time,disc_2_1,alpha=0.4,color='#FF8419')
+rate_fit.scatter(time,disc_3_0,alpha=0.4,color='#65BC85',label="3 Disc")
+rate_fit.scatter(time,disc_3_1,alpha=0.4,color='#65BC85')
+rate_fit.scatter(time,disc_4_0,alpha=0.4,color='#D62728',label="4 Disc")
+rate_fit.scatter(time,disc_4_1,alpha=0.4,color='#D62728')
+
+rate_fit.plot([0,lim_t*10],[0,lim_t*10*av[0]],color='#089FFF')
+rate_fit.plot([0,lim_t*10],[0,lim_t*10*av[1]],color='#FF8419')
+rate_fit.plot([0,lim_t*10],[0,lim_t*10*av[2]],color='#65BC85')
+rate_fit.plot([0,lim_t*10],[0,lim_t*10*av[3]],color='#D62728')
 
 a,b,c = np.polyfit(time,disc_1,2)
-rate_fit.plot(time,a*time*time+b*time,label="1 Disc Best Fit", ls="--",color='#089FFF')
-grad_fit.plot(time,np.gradient(a*time*time+b*time)/10,label="1 Disc LoBF Slope", ls="--",color='#089FFF')
+rate_fit.plot(time,a*time*time+b*time, ls="--",color='#089FFF',alpha=0.2)
 
 a,b,c = np.polyfit(time,disc_2,2)
-rate_fit.plot(time,a*time*time+b*time,label="2 Disc Best Fit", ls="--",color='#FF8419')
-grad_fit.plot(time,np.gradient(a*time*time+b*time)/10,label="2 Disc LoBF Slope", ls="--",color='#FF8419')
+rate_fit.plot(time,a*time*time+b*time, ls="--",color='#FF8419',alpha=0.2)
 
 a,b,c = np.polyfit(time,disc_3,2)
-rate_fit.plot(time,a*time*time+b*time,label="3 Disc Best Fit", ls="--",color='#65BC85')
-grad_fit.plot(time,np.gradient(a*time*time+b*time)/10,label="3 Disc LoBF Slope", ls="--",color='#65BC85')
+rate_fit.plot(time,a*time*time+b*time, ls="--",color='#65BC85',alpha=0.2)
 
 a,b,c = np.polyfit(time,disc_4,2)
-rate_fit.plot(time,a*time*time+b*time,label="4 Disc Best Fit", ls="--",color='#D62728')
-grad_fit.plot(time,np.gradient(a*time*time+b*time)/10,label="4 Disc LoBF Slope", ls="--",color='#D62728')
+rate_fit.plot(time,a*time*time+b*time, ls="--",color='#D62728',alpha=0.2)
 
 rate_fit.legend()
-rate_fit.set_title("Volume of Reaction vs. Time (Best Fit Curves)")
+rate_fit.set_title("Volume of Reaction")
 rate_fit.set_xlabel("Time (s)")
 rate_fit.set_ylabel("Volume (mL)")
 rate_fit.grid(True, linestyle='--', which='major',color='grey', alpha=.25)
-
-grad_fit.legend()
-grad_fit.set_title("Rate of Reaction vs. Time (Slope of LoBF)")
-grad_fit.set_xlabel("Time (s)")
-grad_fit.set_ylabel("Rate (mL/s)")
-grad_fit.grid(True, linestyle='--', which='major',color='grey', alpha=.25)
-
 
 
 plt.tight_layout()
