@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.27 (TeX Live 2026/dev/Arch Linux) (preloaded format=pdflatex 2025.5.3)  26 MAY 2025 18:55
+This is pdfTeX, Version 3.141592653-2.6-1.40.27 (TeX Live 2026/dev/Arch Linux) (preloaded format=pdflatex 2025.5.3)  26 MAY 2025 20:32
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -566,8 +566,13 @@ Underfull \hbox (badness 2285) in paragraph at lines 51--52
 \OT1/cmr/m/n/10 Rus-sett pota-toes as our cell sam-ples and su-crose
  []
 
-(./main.bbl) [1{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}] (./main.aux
-)
+<change_in_mass.png, id=33, 445.54456pt x 466.8642pt>
+File: change_in_mass.png Graphic file (type png)
+<use change_in_mass.png>
+Package pdftex.def Info: change_in_mass.png  used on input line 65.
+(pdftex.def)             Requested size: 246.0pt x 257.77342pt.
+(./main.bbl) [1{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map} <./change_in
+_mass.png>] (./main.aux)
  ***********
 LaTeX2e <2024-11-01> patch level 2
 L3 programming layer <2025-01-18>
@@ -576,13 +581,13 @@ Package rerunfilecheck Info: File `main.out' has not changed.
 (rerunfilecheck)             Checksum: B07D2B148712369D0DD7385A7C022B2A;864.
  ) 
 Here is how much of TeX's memory you used:
- 12971 strings out of 475171
- 192928 string characters out of 5767096
- 625851 words of memory out of 5000000
- 35758 multiletter control sequences out of 15000+600000
+ 12988 strings out of 475171
+ 193258 string characters out of 5767096
+ 626937 words of memory out of 5000000
+ 35774 multiletter control sequences out of 15000+600000
  568846 words of font info for 73 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
- 71i,5n,79p,578b,519s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 71i,6n,79p,578b,519s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/share/
 texmf-dist/fonts/type1/public/amsfonts/cm/cmbx9.pfb></usr/share/texmf-dist/font
 s/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texmf-dist/fonts/type1/public
@@ -591,10 +596,10 @@ r10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/sh
 are/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/share/texmf-dist/f
 onts/type1/public/amsfonts/cm/cmr9.pfb></usr/share/texmf-dist/fonts/type1/publi
 c/amsfonts/cm/cmsy10.pfb>
-Output written on main.pdf (1 page, 110103 bytes).
+Output written on main.pdf (1 page, 231293 bytes).
 PDF statistics:
- 93 PDF objects out of 1000 (max. 8388607)
- 70 compressed objects within 1 object stream
- 9 named destinations out of 1000 (max. 500000)
- 57 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 97 PDF objects out of 1000 (max. 8388607)
+ 72 compressed objects within 1 object stream
+ 10 named destinations out of 1000 (max. 500000)
+ 62 words of extra memory for PDF output out of 10000 (max. 10000000)
 

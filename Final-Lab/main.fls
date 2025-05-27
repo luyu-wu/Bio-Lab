@@ -213,6 +213,11 @@ INPUT /usr/share/texmf-dist/fonts/tfm/public/cm/cmmib10.tfm
 INPUT /usr/share/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmmib7.tfm
 INPUT /usr/share/texmf-dist/fonts/tfm/public/cm/cmbsy10.tfm
 INPUT /usr/share/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmbsy7.tfm
+INPUT ./change_in_mass.png
+INPUT ./change_in_mass.png
+INPUT ./change_in_mass.png
+INPUT ./change_in_mass.png
+INPUT ./change_in_mass.png
 INPUT ./main.bbl
 INPUT ./main.bbl
 INPUT main.bbl

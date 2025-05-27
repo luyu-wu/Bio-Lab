@@ -1,15 +1,15 @@
 # Fdb version 4
-["bibtex main"] 1748300159.05896 "main.aux" "main.bbl" "main" 1748300159.55281 0
-  "./mainNotes.bib" 1748300159.3977 104 4d8bb863c86f3d7b03a471e9d4707f34 ""
+["bibtex main"] 1748305952.68492 "main.aux" "main.bbl" "main" 1748305953.27682 0
+  "./mainNotes.bib" 1748305953.1148 104 4d8bb863c86f3d7b03a471e9d4707f34 ""
   "./refs.bib" 1748300144.61278 3800 19cc005f11f153fa3427c6e69fdca825 ""
   "/usr/share/texmf-dist/bibtex/bst/revtex/apsrev4-2.bst" 1742685315 69609 e9dea59f0e753ccda3ddc8f5806d846d ""
-  "main.aux" 1748300159.3977 1291 470d17d9381c91625bdacc2fe46a485d "pdflatex"
+  "main.aux" 1748305953.1138 1587 22ea94864d7aab57864e21b3261d7cd6 "pdflatex"
   (generated)
   "main.bbl"
   "main.blg"
   (rewritten before read)
-["pdflatex"] 1748300159.10318 "/home/camelia/Code/Bio-Lab/Final-Lab/main.tex" "main.pdf" "main" 1748300159.553 0
-  "/home/camelia/Code/Bio-Lab/Final-Lab/main.tex" 1748300158.03071 2982 0f93219a0e632df2c074e8ddbe9a29b6 ""
+["pdflatex"] 1748305952.72927 "/home/camelia/Code/Bio-Lab/Final-Lab/main.tex" "main.pdf" "main" 1748305953.27703 0
+  "/home/camelia/Code/Bio-Lab/Final-Lab/main.tex" 1748305952.05582 3192 9ab5db0edd4cba3e3e88509f78fcc0ee ""
   "/usr/share/texmf-dist/fonts/map/fontname/texfonts.map" 1742685315 3524 cb3e574dea2d1052e39280babc910dc8 ""
   "/usr/share/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmbsy5.tfm" 1742685315 1120 1e8878807317373affa7f7bba4cf2f6a ""
   "/usr/share/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmbsy6.tfm" 1742685315 1124 14ccf5552bc7f77ca02a8a402bea8bfb ""
@@ -126,10 +126,11 @@
   "/usr/share/texmf-dist/web2c/texmf.cnf" 1742685315 42087 b0f9697c952c8f5a8eede4134282cb0d ""
   "/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map" 1746311572 5311557 9da84c45f5b388655502706482323571 ""
   "/var/lib/texmf/web2c/pdftex/pdflatex.fmt" 1746311556 2686920 ef3e1ecef8a2e4528000b6756c6d0595 ""
-  "main.aux" 1748300159.3977 1291 470d17d9381c91625bdacc2fe46a485d "pdflatex"
-  "main.bbl" 1748300159.09871 2647 136ee726f2c82767d252b29d9993cd69 "bibtex main"
-  "main.out" 1748300159.3977 864 b07d2b148712369d0dd7385a7c022b2a "pdflatex"
-  "main.tex" 1748300158.03071 2982 0f93219a0e632df2c074e8ddbe9a29b6 ""
+  "change_in_mass.png" 1748305838.48057 156629 e9ea23e5caae77bf9d50e0ac183a6d30 ""
+  "main.aux" 1748305953.1138 1587 22ea94864d7aab57864e21b3261d7cd6 "pdflatex"
+  "main.bbl" 1748305952.72481 2647 136ee726f2c82767d252b29d9993cd69 "bibtex main"
+  "main.out" 1748305953.1148 864 b07d2b148712369d0dd7385a7c022b2a "pdflatex"
+  "main.tex" 1748305952.05582 3192 9ab5db0edd4cba3e3e88509f78fcc0ee ""
   (generated)
   "main.aux"
   "main.log"
