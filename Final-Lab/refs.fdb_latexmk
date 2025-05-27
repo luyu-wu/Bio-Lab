@@ -1,0 +1,14 @@
+# Fdb version 4
+["pdflatex"] 1748300144.67659 "/home/camelia/Code/Bio-Lab/Final-Lab/refs.bib" "refs.pdf" "refs" 1748300144.83127 2
+  "/home/camelia/Code/Bio-Lab/Final-Lab/refs.bib" 1748300144.61278 3800 19cc005f11f153fa3427c6e69fdca825 ""
+  "/usr/share/texmf-dist/fonts/map/fontname/texfonts.map" 1742685315 3524 cb3e574dea2d1052e39280babc910dc8 ""
+  "/usr/share/texmf-dist/fonts/tfm/jknappen/ec/tcrm1000.tfm" 1742685315 1536 e07581a4bb3136ece9eeb4c3ffab8233 ""
+  "/usr/share/texmf-dist/web2c/texmf.cnf" 1742685315 42087 b0f9697c952c8f5a8eede4134282cb0d ""
+  "/var/lib/texmf/web2c/pdftex/pdflatex.fmt" 1746311556 2686920 ef3e1ecef8a2e4528000b6756c6d0595 ""
+  "refs.aux" 1748300144.67613 32 3985256e7290058c681f74d7a3565a19 "pdflatex"
+  "refs.bib" 1748300144.61278 3800 19cc005f11f153fa3427c6e69fdca825 ""
+  (generated)
+  "refs.aux"
+  "refs.log"
+  "refs.pdf"
+  (rewritten before read)
